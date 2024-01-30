@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-
+NVIDIA_API_KEY = st.secrets["NVIDIA_API_KEY"]
 st.set_page_config(layout = "wide")
 
 with st.sidebar:
@@ -78,7 +78,7 @@ else:
 # Component #4 - LLM Response Generation and Chat
 ############################################
 
-st.subheader("Chat with your AI Assistant, Envie!")
+st.subheader("Chat with your AI Assistant, Nik!")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -91,7 +91,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
 prompt_template = ChatPromptTemplate.from_messages(
-    [("system", "You are a helpful AI assistant named Envie. You will reply to questions only based on the context that you are provided. If something is out of context, you will refrain from replying and politely decline to respond to the user."), ("user", "{input}")]
+    [("system", "You are a helpful AI assistant named Nik. You will reply to questions only based on the context that you are provided. If something is out of context, you will refrain from replying and politely decline to respond to the user."), ("user", "{input}")]
 )
 user_input = st.chat_input("Can you tell me what NVIDIA is known for?")
 llm = ChatNVIDIA(model="mixtral_8x7b")
